@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #uploadSection {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Upload Your File</h2>
+    <input type="file" id="initialFile" accept=".html,.css,.js">
+    <button onclick="enableUpload()">Upload Initial File</button>
+
+    <div id="uploadSection">
+        <h3>Now, upload your file:</h3>
+        <input type="file" id="userFile" accept=".html,.css,.js">
+        <button onclick="uploadUserFile()">Submit File</button>
+    </div>
+
+    <script>
+        function enableUpload() {
+            let fileInput = document.getElementById("initialFile");
+            if (fileInput.files.length > 0) {
+                document.getElementById("uploadSection").style.display = "block";
+            } else {
+                alert("Please upload an initial file first.");
+            }
+        }
+
+        function uploadUserFile() {
+            let userFileInput = document.getElementById("userFile");
+            if (userFileInput.files.length > 0) {
+                alert("User file uploaded successfully!");
+            } else {
+                alert("Please select a file to upload.");
+            }
+        }
+    </script>
+
+</body>
+</html>
